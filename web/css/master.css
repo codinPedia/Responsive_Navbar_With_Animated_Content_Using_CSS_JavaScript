@@ -41,8 +41,9 @@ body > main > nav > a{
   text-decoration:none;
   text-transform:uppercase;
 }
-body > main > nav > a:is(:hover, [active]){
+body > main > nav > a:is(:active, :focus, :hover, [active]){
   color:rgba(255, 255, 255, 1);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body > main > main{
   padding:10px;
@@ -87,8 +88,8 @@ body > main > main > section > h1{
     display:inline-flex;
     overflow-x:scroll;
     flex-direction:row;
-    align-items:center;
-    justify-content:space-around;
+    /* align-items:center;
+    justify-content:space-around; */
     font-size:1.3em;
   }
   body > main > nav > a{

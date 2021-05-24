@@ -1,0 +1,115 @@
+*{
+  box-sizing:border-box;
+  margin:0px;padding:0px;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html, body{
+  background-color:#100f10;
+  color:rgba(255, 255, 255, 0.67);
+  width:100vw;
+  height:100vh;
+  font-size:20px;
+  font-family:tahoma;
+}
+body > header{
+  color:rgba(255, 255, 0, 1);
+  width:100%;
+  padding:5px 0px;
+  text-align:center;
+  font-family:Courier;
+  font-size:2em;
+}
+
+body > main{
+  display:grid;
+  grid-template-columns:auto auto;
+}
+body > main > nav{
+  display:flex;
+  flex-direction:column;
+  font-size:1.8em;
+}
+body > main > nav > a{
+  color:rgba(255, 255, 255, 0.45);
+  padding:5px 20px;
+  text-decoration:none;
+  text-transform:uppercase;
+}
+body > main > nav > a:is(:hover, [active]){
+  color:rgba(255, 255, 255, 1);
+}
+body > main > main{
+  padding:10px;
+}
+body > main > main > section{
+  background-color:#1b1b1b;
+  box-shadow:0px 10px 15px 0px rgba(0, 0, 0, 0.3);
+  border-radius:5px;
+
+  display:none;
+  padding:20px;
+  font-size:0.85em;
+  text-align:justify;
+  letter-spacing:2px;
+
+  animation:fadeIn ease-in 0.5s;
+}
+@keyframes fadeIn{
+  0%{
+    opacity:0;
+    transform:scale(0.95);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+body > main > main > section:target{
+  display:block;
+}
+body > main > main > section > h1{
+  color:rgba(255, 255, 255, 0.96);
+}
+
+@media screen and (max-width: 600px){
+  body > main{
+    display:grid;
+    grid-template-columns:auto;
+    grid-template-rows:auto auto;
+  }
+  body > main > nav{
+    display:inline-flex;
+    overflow-x:scroll;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-around;
+    font-size:1.3em;
+  }
+  body > main > nav > a{
+    border-block-end:solid transparent;
+  }
+  body > main > nav > a[active]{
+    border-block-end:solid rgba(255, 255, 0, 1);
+  }
+  body > main > main{
+    padding:0px;
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:100vw;
+    overflow-x:scroll;
+    scroll-behavior:smooth;
+  }
+  body > main > main > section{
+    background-image: linear-gradient(to top, #100f10 20%, #1b1b1b 80%);
+    display:block;
+    border-radius:unset;
+    animation:none;
+    box-shadow:none;
+  }
+}
